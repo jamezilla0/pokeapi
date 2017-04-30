@@ -16,7 +16,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MANAGERS = ADMINS
 
-BASE_URL = 'http://pokeapi.co'
+BASE_URL = 'http://127.0.0.1:8000'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -140,7 +140,11 @@ API_LIMIT_PER_PAGE = 1
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000' # Here was the problem indeed and it has to be http://localhost:3000, not http://localhost:3000/
+)
 
 CORS_ALLOW_METHODS = (
     'GET'
