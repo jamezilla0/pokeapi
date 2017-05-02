@@ -4,7 +4,7 @@ import os
 
 PROJECT_ROOT = Path(__file__).ancestor(2)
 
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -20,7 +20,7 @@ BASE_URL = 'http://127.0.0.1:8000'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['.pokeapi.co', 'localhost']
+ALLOWED_HOSTS = []
 
 TIME_ZONE = 'Europe/London'
 
@@ -143,7 +143,7 @@ TASTYPIE_DEFAULT_FORMATS = ['json']
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000' # Here was the problem indeed and it has to be http://localhost:3000, not http://localhost:3000/
+    '127.0.0.1:8000' # Here was the problem indeed and it has to be http://localhost:3000, not http://localhost:3000/
 )
 
 CORS_ALLOW_METHODS = (
